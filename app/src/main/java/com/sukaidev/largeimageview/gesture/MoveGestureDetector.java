@@ -19,7 +19,7 @@ public class MoveGestureDetector extends BaseGestureDetector {
     private PointF mDeltaPointer = new PointF();
 */
 
-    // 用于记录最终结果，并返回
+    // 用于记录移动距离，并返回
     private PointF mExternalPointer = new PointF();
 
     private OnMoveGestureListener mListener;
