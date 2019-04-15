@@ -9,9 +9,12 @@ import android.view.MotionEvent;
  */
 public abstract class BaseGestureDetector {
 
+    // 手势状态
     protected boolean mGestureInProgress;
 
+    // 记录前一个触摸点
     protected MotionEvent mPreMotionEvent;
+    // 当前触摸点
     protected MotionEvent mCurrentMotionEvent;
 
     private Context mContext;
@@ -29,12 +32,27 @@ public abstract class BaseGestureDetector {
         return true;
     }
 
+    /**
+     * 滑动时需要进行的操作.
+     * @param event
+     */
     protected abstract void handleInProgressEvent(MotionEvent event);
 
+    /**
+     * 开始滑动时需要进行的操作.
+     * @param event
+     */
     protected abstract void handleStartProgressEvent(MotionEvent event);
 
+    /**
+     * 更新滑动状态.
+     * @param event
+     */
     protected abstract void updateStateByEvent(MotionEvent event);
 
+    /**
+     * 重置滑动状态.
+     */
     void resetState() {
         if (mPreMotionEvent != null) {
             mPreMotionEvent.recycle();
